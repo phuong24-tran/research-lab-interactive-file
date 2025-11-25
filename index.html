@@ -1,762 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Reimagining the First Year of the B.Com – Telfer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Optional Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <title>Telfer Research Lab Interactive Poster</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    :root {
-      --telfer-red: #7b002c;
-      --telfer-red-light: #a32243;
-      --green-academy: #1f7a4d;
-      --bg: #f5f5f7;
-      --card-bg: #ffffff;
-      --text-main: #1b1b1f;
-      --text-muted: #555b66;
-      --border-soft: #e1e3ea;
-      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.12);
-      --radius-xl: 24px;
-      --radius-lg: 16px;
-      --transition-fast: 0.25s ease;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      background: radial-gradient(circle at top left, #fdf4f7, #f5faf7 40%, #f5f5f7 80%);
-      color: var(--text-main);
-      padding: 24px;
-      display: flex;
-      justify-content: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f4f7;
+      color: #1a1a1a;
     }
-
-    .poster-container {
-      width: 100%;
-      max-width: 1180px;
-      background: linear-gradient(135deg, #ffffff 0%, #fbfbff 100%);
-      border-radius: 32px;
-      box-shadow: var(--shadow-soft);
-      padding: 28px 28px 32px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Light decorative gradient overlay */
-    .poster-container::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background: radial-gradient(circle at 0% 0%, rgba(123, 0, 44, 0.12), transparent 55%),
-        radial-gradient(circle at 100% 0%, rgba(31, 122, 77, 0.12), transparent 55%);
-      opacity: 0.8;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .poster-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* HEADER */
-
     .header {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-
-    .logo-group {
-      display: flex;
       align-items: center;
-      gap: 12px;
-    }
-
-    .logo-badge {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 999px;
-      padding: 6px 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(8px);
-    }
-
-    .logo-badge img {
-      height: 28px;
-      width: auto;
-      object-fit: contain;
-    }
-
-    .logo-badge span {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      white-space: nowrap;
-    }
-
-    .tag-pill {
-      font-size: 0.7rem;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(27, 27, 31, 0.08);
-      background: rgba(255, 255, 255, 0.9);
-      color: var(--text-muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .tag-pill-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--telfer-red);
-    }
-
-    /* TITLE BLOCK */
-
-    .title-block {
-      margin-bottom: 24px;
-    }
-
-    .eyebrow {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--telfer-red);
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .main-title {
-      font-size: 1.9rem;
-      line-height: 1.2;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 6px;
-    }
-
-    .highlight {
-      background: linear-gradient(90deg, rgba(123, 0, 44, 0.08), rgba(31, 122, 77, 0.1));
-      padding: 2px 6px;
-      border-radius: 10px;
-    }
-
-    .subtitle {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      max-width: 630px;
-    }
-
-    .subtitle strong {
-      color: var(--telfer-red-light);
-      font-weight: 600;
-    }
-
-    /* META LINE */
-
-    .meta-line {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      border-radius: 999px;
-      padding: 8px 14px;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid var(--border-soft);
-      margin-bottom: 18px;
-    }
-
-    .meta-left {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .meta-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .meta-pill-label {
-      font-weight: 500;
-      color: var(--text-main);
-    }
-
-    .meta-right {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .meta-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--green-academy);
-    }
-
-    /* LAYOUT GRID */
-
-    .content-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 2.1fr) minmax(0, 2.4fr);
-      gap: 18px;
-      align-items: flex-start;
-    }
-
-    /* LEFT COLUMN - SUMMARY */
-
-    .summary-card {
-      background: var(--card-bg);
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border-soft);
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
-      padding: 18px 18px 16px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .summary-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 110% 10%, rgba(31, 122, 77, 0.12), transparent 55%);
-      opacity: 0.9;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .summary-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .summary-title-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--telfer-red);
-    }
-
-    .summary-text {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-      margin-bottom: 12px;
-    }
-
-    .summary-text span.strong {
-      color: var(--text-main);
-      font-weight: 500;
-    }
-
-    .summary-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .summary-badge {
-      font-size: 0.72rem;
-      padding: 4px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(123, 0, 44, 0.25);
-      color: var(--telfer-red);
-      background: rgba(123, 0, 44, 0.03);
-    }
-
-    /* RIGHT COLUMN - AXIS GRID */
-
-    .axes-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .axis-card {
-      background: rgba(255, 255, 255, 0.96);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-soft);
-      padding: 12px 12px 10px;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
-        border-color var(--transition-fast), background var(--transition-fast);
-    }
-
-    .axis-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(123, 0, 44, 0.06), rgba(31, 122, 77, 0.06));
-      opacity: 0;
-      transition: opacity var(--transition-fast);
-      z-index: -1;
-    }
-
-    .axis-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 22px rgba(15, 23, 42, 0.18);
-      border-color: rgba(123, 0, 44, 0.35);
       background: #ffffff;
+      padding: 20px;
+      border-bottom: 2px solid #ddd;
     }
-
-    .axis-card:hover::before {
-      opacity: 1;
-    }
-
-    .axis-header {
+    .logo-box {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 6px;
-      margin-bottom: 6px;
-    }
-
-    .axis-label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--telfer-red);
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-
-    .axis-name {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text-main);
-    }
-
-    .axis-tag {
-      font-size: 0.68rem;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: rgba(31, 122, 77, 0.06);
-      color: var(--green-academy);
-      border: 1px solid rgba(31, 122, 77, 0.28);
-      white-space: nowrap;
-    }
-
-    .axis-summary {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      line-height: 1.45;
-      margin-bottom: 4px;
-    }
-
-    .axis-expand {
-      font-size: 0.72rem;
-      display: inline-flex;
+      gap: 20px;
       align-items: center;
-      gap: 4px;
-      color: var(--telfer-red-light);
-      font-weight: 500;
     }
-
-    .axis-expand svg {
-      width: 10px;
-      height: 10px;
-      transition: transform var(--transition-fast);
+    .logo {
+      height: 50px;
     }
-
-    .axis-card.expanded .axis-expand svg {
-      transform: rotate(90deg);
+    .title-section {
+      padding: 30px;
+      background: #ffffff;
+      text-align: center;
+      border-bottom: 2px solid #ddd;
     }
-
-    .axis-details {
-      font-size: 0.74rem;
-      color: var(--text-muted);
-      margin-top: 6px;
-      border-top: 1px dashed rgba(27, 27, 31, 0.12);
-      padding-top: 6px;
+    .main-title {
+      font-size: 28px;
+      font-weight: bold;
+      color: #7b002c;
+    }
+    .subtitle {
+      font-size: 16px;
+      margin-top: 8px;
+      color: #555;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 30px;
+      gap: 20px;
+    }
+    .card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #e1e1e1;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .card:hover {
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+      transform: translateY(-3px);
+    }
+    .card-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #7b002c;
+    }
+    .card-content {
+      font-size: 14px;
+      margin-top: 8px;
+      line-height: 1.4;
       display: none;
     }
-
-    .axis-details ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .axis-details li {
-      margin-bottom: 3px;
-      position: relative;
-      padding-left: 12px;
-    }
-
-    .axis-details li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      top: 0;
-      font-size: 0.9em;
-      color: var(--green-academy);
-    }
-
-    .axis-card.expanded .axis-details {
-      display: block;
-    }
-
-    /* FOOTER */
-
     .footer {
-      margin-top: 16px;
-      font-size: 0.74rem;
-      color: var(--text-muted);
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .footer span strong {
-      color: var(--text-main);
-    }
-
-    .footer-pill {
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px dashed rgba(27, 27, 31, 0.18);
-      background: rgba(255, 255, 255, 0.9);
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 900px) {
-      .content-layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    @media (max-width: 700px) {
-      body {
-        padding: 14px;
-      }
-      .poster-container {
-        border-radius: 24px;
-        padding: 18px 16px 22px;
-      }
-      .header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .main-title {
-        font-size: 1.55rem;
-      }
-      .axes-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .meta-line {
-        border-radius: 14px;
-      }
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      background: #ffffff;
+      border-top: 2px solid #ddd;
+      margin-top: 20px;
     }
   </style>
 </head>
+
 <body>
-  <main class="poster-container">
-    <div class="poster-inner">
 
-      <!-- HEADER -->
-      <header class="header">
-        <div class="logo-group">
-          <!-- Telfer Logo -->
-          <div class="logo-badge">
-            <img src="Telfer-logo.png" alt="Telfer School of Management logo" />
-            <span>Telfer School of Management</span>
-          </div>
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo-box">
+      <!-- TELFER LOGO (Base64 placeholder) -->
+      <img class="logo" src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjN2IwMDJjIiB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA1MCA1MCI+PHJlY3Qgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiByeD0iOCIgZmlsbD0iIzdCMDMyQyIvPjwvc3ZnPg==" alt="Telfer Logo">
 
-          <!-- Green Academy Logo -->
-          <div class="logo-badge">
-            <img src="GreenAcademy-logo.png" alt="Green Academy logo" />
-            <span>Green Academy</span>
-          </div>
-        </div>
-
-        <div>
-          <div class="tag-pill">
-            <span class="tag-pill-dot"></span>
-            Innovations in Education Series · Sept 2025
-          </div>
-        </div>
-      </header>
-
-      <!-- TITLE BLOCK -->
-      <section class="title-block">
-        <div class="eyebrow">B.Com Program Renewal</div>
-        <h1 class="main-title">
-          Reimagining the
-          <span class="highlight">First Year of the B.Com</span>
-          at Telfer
-        </h1>
-        <p class="subtitle">
-          Recommendations from the <strong>“Pedagogical Prefiguration”</strong> workshops,
-          co-created by professors, students, and educational advisors to transform the first-year
-          learning experience.
-        </p>
-      </section>
-
-      <!-- META LINE -->
-      <section class="meta-line">
-        <div class="meta-left">
-          <div class="meta-pill">
-            <span class="meta-pill-label">Lead:</span>
-            <span>Mathieu Bouchard (Coordinator)</span>
-          </div>
-          <div class="meta-pill">
-            <span class="meta-pill-label">Report:</span>
-            <span>Hamza Tawdi (Research Assistant)</span>
-          </div>
-        </div>
-        <div class="meta-right">
-          <span class="meta-dot"></span>
-          <span>From co-creation to program-wide recommendations</span>
-        </div>
-      </section>
-
-      <!-- MAIN CONTENT -->
-      <section class="content-layout">
-        <!-- LEFT COLUMN: SUMMARY -->
-        <article class="summary-card">
-          <h2 class="summary-title">
-            <span class="summary-title-dot"></span>
-            A cultural and pedagogical shift
-          </h2>
-          <p class="summary-text">
-            This initiative goes beyond a simple content reform. It aims to
-            <span class="strong">rethink how we teach, learn, and collaborate</span> in the first
-            year of the B.Com. Drawing on three participatory workshops, the project identifies
-            shared challenges and translates them into five strategic axes:
-          </p>
-          <div class="summary-badges">
-            <span class="summary-badge">Coherent governance</span>
-            <span class="summary-badge">Support for teaching staff</span>
-            <span class="summary-badge">Living classroom experience</span>
-            <span class="summary-badge">Student-centred journey</span>
-            <span class="summary-badge">Responsible AI & integrity</span>
-          </div>
-        </article>
-
-        <!-- RIGHT COLUMN: AXES -->
-        <section class="axes-grid">
-
-          <!-- AXIS 1 -->
-          <article class="axis-card" data-axis="1">
-            <div class="axis-header">
-              <div>
-                <div class="axis-label">Axis 1</div>
-                <div class="axis-name">Governance of Innovation</div>
-              </div>
-              <div class="axis-tag">Dialogue & Coherence</div>
-            </div>
-            <p class="axis-summary">
-              A shared governance structure to align decisions, ensure transparency, and connect
-              student and professor voices.
-            </p>
-            <button class="axis-expand" type="button">
-              Learn more
-              <svg viewBox="0 0 16 16" aria-hidden="true">
-                <path
-                  fill="currentColor"
-                  d="M5 3.5L11 8L5 12.5V3.5Z"
-                />
-              </svg>
-            </button>
-            <div class="axis-details">
-              <ul>
-                <li>Create a permanent Student–Professor Innovation Committee.</li>
-                <li>Monitor the implementation and impact of pedagogical reforms.</li>
-                <li>Adopt a shared Pedagogical Quality Guide for all B.Com courses.</li>
-                <li>Harmonize course outlines and Brightspace standards across sections.</li>
-              </ul>
-            </div>
-          </article>
-
-          <!-- AXIS 2 -->
-          <article class="axis-card" data-axis="2">
-            <div class="axis-header">
-              <div>
-                <div class="axis-label">Axis 2</div>
-                <div class="axis-name">Supporting the Teaching Staff</div>
-              </div>
-              <div class="axis-tag">Teaching Excellence</div>
-            </div>
-            <p class="axis-summary">
-              Recognizing pedagogy as a core dimension of academic excellence and supporting
-              instructors in a changing learning environment.
-            </p>
-            <button class="axis-expand" type="button">
-              Learn more
-              <svg viewBox="0 0 16 16" aria-hidden="true">
-                <path
-                  fill="currentColor"
-                  d="M5 3.5L11 8L5 12.5V3.5Z"
-                />
-              </svg>
-            </button>
-            <div class="axis-details">
-              <ul>
-                <li>Launch the Telfer Teaching Excellence certification program.</li>
-                <li>Focus on active learning, digital innovation, and inclusive pedagogy.</li>
-                <li>Build a Telfer Teaching Forum as a community of practice.</li>
-                <li>Encourage mentoring between experienced and new instructors.</li>
-              </ul>
-            </div>
-          </article>
-
-          <!-- AXIS 3 -->
-          <article class="axis-card" data-axis="3">
-            <div class="axis-header">
-              <div>
-                <div class="axis-label">Axis 3</div>
-                <div class="axis-name">Pedagogical Relationship</div>
-              </div>
-              <div class="axis-tag">Engagement & Feedback</div>
-            </div>
-            <p class="axis-summary">
-              Turning the classroom into a collective learning space, supported by continuous
-              feedback and mutual trust.
-            </p>
-            <button class="axis-expand" type="button">
-              Learn more
-              <svg viewBox="0 0 16 16" aria-hidden="true">
-                <path
-                  fill="currentColor"
-                  d="M5 3.5L11 8L5 12.5V3.5Z"
-                />
-              </svg>
-            </button>
-            <div class="axis-details">
-              <ul>
-                <li>Shift away from purely transmissive lectures to interactive sessions.</li>
-                <li>Use short cycles: input, application, discussion.</li>
-                <li>Implement monthly micro-surveys in Brightspace for real-time feedback.</li>
-                <li>Encourage instructors to share how they act on student feedback.</li>
-              </ul>
-            </div>
-          </article>
-
-          <!-- AXIS 4 -->
-          <article class="axis-card" data-axis="4">
-            <div class="axis-header">
-              <div>
-                <div class="axis-label">Axis 4</div>
-                <div class="axis-name">Student Experience</div>
-              </div>
-              <div class="axis-tag">Coherent Journey</div>
-            </div>
-            <p class="axis-summary">
-              Designing a first year that feels structured, meaningful, and supported—both in
-              person and online.
-            </p>
-            <button class="axis-expand" type="button">
-              Learn more
-              <svg viewBox="0 0 16 16" aria-hidden="true">
-                <path
-                  fill="currentColor"
-                  d="M5 3.5L11 8L5 12.5V3.5Z"
-                />
-              </svg>
-            </button>
-            <div class="axis-details">
-              <ul>
-                <li>Create a credit-bearing “Living and Learning at Telfer” integration course.</li>
-                <li>Clarify the progression of competencies across first-year courses.</li>
-                <li>Develop “Telfer Essentials,” a central digital hub integrated with Brightspace.</li>
-                <li>Empower students to co-govern and animate the digital environment.</li>
-              </ul>
-            </div>
-          </article>
-
-          <!-- AXIS 5 -->
-          <article class="axis-card" data-axis="5">
-            <div class="axis-header">
-              <div>
-                <div class="axis-label">Axis 5</div>
-                <div class="axis-name">Artificial Intelligence & Integrity</div>
-              </div>
-              <div class="axis-tag">Ethical Innovation</div>
-            </div>
-            <p class="axis-summary">
-              Framing AI as a tool for critical thinking and learning, while cultivating a strong
-              culture of academic integrity.
-            </p>
-            <button class="axis-expand" type="button">
-              Learn more
-              <svg viewBox="0 0 16 16" aria-hidden="true">
-                <path
-                  fill="currentColor"
-                  d="M5 3.5L11 8L5 12.5V3.5Z"
-                />
-              </svg>
-            </button>
-            <div class="axis-details">
-              <ul>
-                <li>Adopt a faculty-wide policy on AI use with clear levels: allowed, guided, prohibited.</li>
-                <li>Require transparent disclosure when AI is used in assignments.</li>
-                <li>Introduce training on AI literacy and digital critical thinking.</li>
-                <li>Launch an “Augmented Integrity” Pact and workshops on ethics & AI.</li>
-              </ul>
-            </div>
-          </article>
-
-        </section>
-      </section>
-
-      <!-- FOOTER -->
-      <footer class="footer">
-        <span>
-          Part of the <strong>Innovations in Education</strong> series · Telfer School of Management
-        </span>
-        <span class="footer-pill">
-          From first-year experience to a renewed B.Com culture of trust, rigor, and innovation.
-        </span>
-      </footer>
+      <!-- GREEN ACADEMY LOGO (Base64 placeholder) -->
+      <img class="logo" src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMWY3YTRkIiB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA1MCA1MCI+PHNpcmNsZSByPSIyMCIgY3g9IjI1IiBjeT0iMjUiIGZpbGw9IiMxRjdBNEQiLz48L3N2Zz4=" alt="Green Academy Logo">
     </div>
-  </main>
+    <div style="font-size:14px; color:#777;">Innovations in Education · 2025</div>
+  </div>
+
+  <!-- TITLE SECTION -->
+  <div class="title-section">
+    <div class="main-title">Reimagining the First Year of the B.Com</div>
+    <div class="subtitle">Pedagogical Prefiguration · Telfer School of Management</div>
+  </div>
+
+  <!-- CONTENT GRID -->
+  <div class="layout">
+
+    <!-- AXIS CARDS -->
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-title">Axis 1 — Governance of Innovation</div>
+      <div class="card-content">
+        • Create a Student–Professor Innovation Committee <br>
+        • Adopt a shared Pedagogical Quality Guide <br>
+        • Ensure transparency and alignment across courses
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-title">Axis 2 — Supporting the Teaching Staff</div>
+      <div class="card-content">
+        • Telfer Teaching Excellence program <br>
+        • Mentoring between senior and new instructors <br>
+        • Monthly pedagogical innovation forum
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-title">Axis 3 — Pedagogical Relationship</div>
+      <div class="card-content">
+        • Shift from lectures to interactive learning <br>
+        • Real-time student feedback surveys <br>
+        • Build trust and academic engagement
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-title">Axis 4 — Student Experience</div>
+      <div class="card-content">
+        • Credit course “Living & Learning at Telfer” <br>
+        • First-year competency progression map <br>
+        • “Telfer Essentials” integrated digital platform
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-title">Axis 5 — Artificial Intelligence & Integrity</div>
+      <div class="card-content">
+        • Clear rules for AI use in coursework <br>
+        • AI-assisted learning with transparency <br>
+        • “Augmented Integrity” pact & ethical workshops
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Telfer School of Management · Innovations in Education · 2025
+  </div>
 
   <script>
-    // Simple expand/collapse for axis cards
-    document.querySelectorAll(".axis-card").forEach((card) => {
-      const button = card.querySelector(".axis-expand");
-      button.addEventListener("click", (event) => {
-        event.stopPropagation();
-        card.classList.toggle("expanded");
-      });
-
-      // Optionally, expand/collapse when clicking the whole card
-      card.addEventListener("click", (event) => {
-        // Avoid double toggle if click was on the button
-        if (!event.target.closest(".axis-expand")) {
-          card.classList.toggle("expanded");
-        }
-      });
-    });
+    function toggleCard(card) {
+      const content = card.querySelector(".card-content");
+      content.style.display = content.style.display === "block" ? "none" : "block";
+    }
   </script>
+
 </body>
 </html>
